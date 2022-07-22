@@ -21,6 +21,8 @@ const Section = styled.div`
     margin: 0;
     font-size: 46px;
     font-size: 2.8rem;
+    text-align: center;
+    /* border: 1px solid red; */
   }
 
   h5 {
@@ -30,7 +32,16 @@ const Section = styled.div`
     text-align: center;
     color: #656565;
     line-height: 27px;
+    text-align: center;
+
+    @media only screen and (max-width: 1235px) {
+      
+    }
   }
+
+  @media only screen and (max-width: 1235px) {
+      width: 100%;
+    }
 `;
 
 const Header = () => {

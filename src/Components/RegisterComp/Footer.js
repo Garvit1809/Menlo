@@ -2,8 +2,9 @@ import React from 'react'
 import styled from "styled-components";
 
 const Section = styled.div`
-position: absolute;
+position: fixed;
 bottom: 0;
+/* height: 4rem; */
 margin-bottom: 1rem;
 /* border: 1px solid red; */
 

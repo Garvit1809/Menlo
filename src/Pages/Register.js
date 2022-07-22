@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Footer from "../Components/RegisterComp/Footer";
 import Header from "../Components/RegisterComp/Header";
+import { ImGoogle } from 'react-icons/im'
 
 const Section = styled.div`
   width: 100vw;
@@ -13,6 +14,7 @@ const Section = styled.div`
 
 const MainPage = styled.div`
   width: 98vw;
+  /* height: calc(96vh - 4rem); */
   height: 96vh;
   background-color: white;
   margin: auto;
@@ -24,13 +26,19 @@ const MainPage = styled.div`
   /* justify-content: center; */
 
   position: relative;
+
+  @media only screen and (max-width: 1235px) {
+   /* background-color: lightcoral; */
+  }
+
+  
 `;
 
 const SignUps = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid green; */
+  /* border: 2px solid green;  */
 
   form {
     display: flex;
@@ -38,7 +46,6 @@ const SignUps = styled.div`
 
     input{
         border: 1px solid #C5C5C5;
-        /* color: #C5C5C5; */
         border-radius: 9px;
         padding: 0.7rem 0 0.7rem 1rem;
         margin-bottom: 1rem;
@@ -54,18 +61,41 @@ const SignUps = styled.div`
   button{
     color: white;
     background-color: #2B2A35;
-    font-size: 20px;
+    font-size: 1.4rem;
     padding: 0.7rem 0;
     border-radius: 9px;
     border: none;
     cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:active{
+      transform: scale(0.9);
+      svg{
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  button.google{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    width: 50%;
+    button{
+      font-size: 1.2rem;
+      /* margin: 0 auto; */
+      /* width: 120%; */
+    }
   }
 `;
 
 const Orrrr = styled.div`
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   /* border: 1px solid red; */
   
   hr {
@@ -85,19 +115,24 @@ const Orrrr = styled.div`
 `;
 
 const Register = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <Section>
       <MainPage>
         <Header />
         <SignUps>
-          <button>Continue with Google</button>
+          <button className="google"><ImGoogle/>Continue with Google</button>
           <Orrrr>
             <hr />
             <p>or</p>
             <hr />
           </Orrrr>
-          <form>
-            <input type="email" name="" id="" placeholder="jon@menlo.com" />
+          <form onSubmit={(e) => handleSubmit(e)} >
+            <input type="email" name="" placeholder="jon@menlo.com" />
             <button>Continue with Email</button>
           </form>
         </SignUps>
